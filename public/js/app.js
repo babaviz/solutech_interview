@@ -21457,7 +21457,10 @@ var render = function() {
       _vm.order
         ? _c("div", [
             _c("h2", { staticClass: "text-muted" }, [
-              _vm._v("ORDER #" + _vm._s(_vm.order.order_name))
+              _vm._v("ORDER "),
+              _c("span", { staticClass: "text-info" }, [
+                _vm._v("#" + _vm._s(_vm.order.order_number))
+              ])
             ]),
             _vm._v(" "),
             _c("br"),

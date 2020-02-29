@@ -7,7 +7,7 @@
             :records="products">
         </notification-component>
         <div v-if="order">
-            <h2 class="text-muted">ORDER #{{order.order_name}}</h2>
+            <h2 class="text-muted">ORDER <span class="text-info">#{{order.order_number}}</span></h2>
             <br>
             <div class="container">
             <h3 class="text-center text-uppercase">Order Details</h3>
