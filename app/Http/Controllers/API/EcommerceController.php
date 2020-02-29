@@ -61,4 +61,16 @@ class EcommerceController extends Controller
 
         return response()->json(['supplier'=>$supplier]);
     }
+
+    public function order($id){
+        $order=Order::query()->find($id);
+        if($order) {
+            $order->products;
+            for ($i=0;$i<$order->products->count();$i++){
+                $order->products[$i]->supplier=$order->products[$i]->supplier();
+            }
+        }
+
+        return response()->json(['order'=>$order]);
+    }
 }

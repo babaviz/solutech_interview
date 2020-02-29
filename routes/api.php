@@ -20,10 +20,13 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::group([],function (){
+Route::post('login', 'Auth\LoginController@login');
+
+Route::group(['middleware'=>'auth:api'],function (){
     Route::get('summary','API\EcommerceController@summary');
     Route::get('suppliers','API\EcommerceController@suppliers');
     Route::get('products','API\EcommerceController@products');
     Route::get('orders','API\EcommerceController@orders');
     Route::get('supplier/{id}','API\EcommerceController@supplier');
+    Route::get('order/{id}','API\EcommerceController@order');
 });

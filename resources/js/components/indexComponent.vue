@@ -40,6 +40,7 @@
                     console.log(error);
                     this.errorMsg="Oops! something went wrong";
                     this.showError=true;
+                    this.$parent.checkAuthError(error);
                 })
                 .finally(()=>{
                     this.loading=false;

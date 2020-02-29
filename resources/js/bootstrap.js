@@ -8,7 +8,20 @@ window._ = require('lodash');
 
 window.axios = require('axios');
 
-window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+window.axios.defaults.headers.common['Authorization'] = 'Bearer '+(sessionStorage.getItem('auth')?sessionStorage.getItem('auth').token:"");
+
+// Add a request interceptor
+window.axios.interceptors.request.use(function (config) {
+    let auth = sessionStorage.getItem('auth')?sessionStorage.getItem('auth'):null;
+    let token="";
+    if(auth){
+        let json=JSON.parse(auth);
+        token=json.user.token;
+    }
+    config.headers.Authorization =  'Bearer '+token;
+
+    return config;
+});
 
 /**
  * Echo exposes an expressive API for subscribing to channels and listening

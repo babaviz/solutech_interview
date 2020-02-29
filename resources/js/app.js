@@ -14,7 +14,7 @@ import Products from './components/ProductsComponent';
 import Orders from './components/OrdersComponent';
 import Supplier from './components/SupplierComponent';
 import Order from './components/OrderComponent';
-
+import Login from  './components/AuthLoginComponent';
 const router = new VueRouter({
    routes:[
        {path:'/',component:Home},
@@ -22,8 +22,14 @@ const router = new VueRouter({
        {path:'/products',component:Products},
        {path:'/orders',component:Orders},
        {path:'/supplier/:id',component:Supplier},
-       {path:'/order/:id',component:Order}
+       {path:'/order/:id',component:Order},
+       {path:'/auth/login',component:Login},
    ]
 });
 
-const app = new Vue(Vue.util.extend({ router }, App)).$mount('#app');
+var app=new Vue(
+    Vue.util.extend(
+        { router },
+        App
+    )
+).$mount('#app');

@@ -21,7 +21,7 @@
                     <td>{{order.order_number}}</td>
                     <td class="text-center">
                         <div class="text-muted text-center text-sm-center">Products({{order.detail}})</div>
-                        <router-link to="/">details</router-link>
+                        <router-link :to="`/order/`+order.id">details</router-link>
                     </td>
                 </tr>
                 </tbody>
@@ -53,6 +53,7 @@
                     console.log(error);
                     this.errorMsg="Oops! something went wrong";
                     this.showError=true;
+                    this.$parent.checkAuthError(error);
                 })
                 .finally(()=>{
                     this.loading=false;
