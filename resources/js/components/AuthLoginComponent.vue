@@ -52,6 +52,7 @@
                     console.log(response.data);
                     sessionStorage.setItem("auth",JSON.stringify(response.data));
                     this.$router.push('/');
+                    window.location.reload(true);
                 }).catch((error)=>{
                    console.log(error);
                    if(error.response.status === 403){

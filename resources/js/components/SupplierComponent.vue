@@ -7,7 +7,7 @@
             :records="products">
         </notification-component>
         <div v-if="supplier">
-            <h2 class="text-muted">{{supplier.name}}</h2>
+            <h2 class="text-muted">SUPPLIER: <span class="text-info">{{supplier.name}}</span></h2>
             <br>
             <div class="container">
             <h3 class="text-center text-uppercase">Products</h3>

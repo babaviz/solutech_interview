@@ -75,6 +75,7 @@
             logout(){
                 sessionStorage.clear();
                 this.$router.push('/auth/login');
+                window.location.reload(true);
             }
         },
         computed:{
